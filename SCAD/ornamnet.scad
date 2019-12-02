@@ -36,7 +36,8 @@ module bottom(){
       }
       cylinder(h=28,d=42);
     }
-    translate([0,0,4]) cylinder(h=25,d1=20, d2=10);
+    translate([0,0,4.5]) cylinder(h=22.5,d=25,$fn=64);
+    translate([0,0,4.5]) cylinder(h=25,d=12,$fn=64);
   }
 }
 
@@ -52,7 +53,7 @@ module top(){
         circle(r=2.5, $fn=32);
       }
       translate([0,0,25]) intersection(){
-        sphere(d=50-1.6,$fn=128);
+        scale([1,1,0.9]) sphere(d=50-2.4,$fn=128);
         translate([0,0,5]) cylinder(h=40,d=100);
       }
       translate([0,0,5]) import("screwOuterOutset.stl");     
@@ -60,6 +61,9 @@ module top(){
     }
 }
 
+
 //top();
+
 rotate([180,0,0]) bottom();
+
 //rotate([180,0,0])  ring();
